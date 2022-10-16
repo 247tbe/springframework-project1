@@ -4,9 +4,7 @@ import com.nhnacademy.edu.springframework.project.repository.CsvStudents;
 import com.nhnacademy.edu.springframework.project.repository.Score;
 
 import com.nhnacademy.edu.springframework.project.repository.Students;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,8 +23,7 @@ public class DefaultGradeQueryService implements GradeQueryService {
         //
         // Hint. CsvStudents 클래스의 findAll() 이 있네요? 적절히 필터링하고 찾아오면 되겠죠?
         //
-        Collection<Student> sameNameList = studentRepository.findAll();
-        sameNameList.stream()
+        Collection<Student> sameNameList = studentRepository.findAll().stream()
             .filter(s -> s.getName().equals(name))
             .collect(Collectors.toList());
 
@@ -42,8 +39,9 @@ public class DefaultGradeQueryService implements GradeQueryService {
         // TODO 6 : 학번으로 점수를 반환합니다. seq 인자가 학번입니다.
         Collection<Student> students = studentRepository.findAll();
 
-        return (Score) students.stream()
-            .filter(s -> s.getSeq() == seq)
-            .map(student -> student.getScore());
+        Score score = (Score) students.stream()
+            .filter(s -> s.getSeq() == seq);
+
+        return score;
     }
 }

@@ -12,16 +12,18 @@ public class Student {
         this.name = name;
     }
 
-    public void setScore(Score score) {
-        this.score = score;
-    }
 
     public Score getScore(){
         return this.score;
     }
+    public void setScore(Score score) {
+        this.score = score;
+    }
+
     public String getName() {
         return this.name;
     }
+
     public int getSeq() {
         return this.seq;
     }

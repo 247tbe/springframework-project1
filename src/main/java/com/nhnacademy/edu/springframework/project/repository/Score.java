@@ -2,7 +2,7 @@ package com.nhnacademy.edu.springframework.project.repository;
 
 public class Score {
     private final int studentSeq;
-    private final int score;
+    private int score;
 
     public Score(int studentSeq, int score) {
         this.studentSeq = studentSeq;
